@@ -150,3 +150,5 @@ func validerFormulaire(nom, prenom, sexe string) (bool, string) {
 
 	return true, ""
 }
+
+//
