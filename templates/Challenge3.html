@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Utilisateur</title>
+    <link rel="stylesheet" href="/GO-web/static/css/chall3.css">
+    <style>body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #444;
+            margin-bottom: 40px;
+        }
+
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Formulaire d'informations utilisateur</h1>
+<form action="/user/treatment" method="POST">
+    <label for="nom">Nom :</label><br>
+    <input type="text" id="nom" name="nom" required><br>
+
+    <label for="prenom">Prénom :</label><br>
+    <input type="text" id="prenom" name="prenom" required><br>
+
+    <label for="dateNaissance">Date de naissance :</label><br>
+    <input type="text" id="dateNaissance" name="dateNaissance"><br>
+
+    <label for="sexe">Sexe :</label><br>
+    <select name="sexe" id="sexe" required>
+        <option value="masculin">Masculin</option>
+        <option value="féminin">Féminin</option>
+        <option value="autre">Autre</option>
+    </select><br><br>
+
+    <input type="submit" value="Soumettre">
+</form>
+</body>
+</html>

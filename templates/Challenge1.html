@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/GO-web/static/css/chall1.css">
+    <title>Informations de la classe</title>
+    <style>body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        strong {
+            color: #333;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+
+        td img {
+            vertical-align: middle;
+        }
+
+
+        tr:hover {
+            background-color: #eaeaea;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<h1>Détails de la classe : {{.ClasseName}}</h1>
+<p><strong>Filière :</strong> {{.Filiere}}</p>
+<p><strong>Niveau :</strong> {{.Niv}}</p>
+<p><strong>Nombre d'étudiants :</strong> {{.NbrStudents}}</p>
+
+<h2>Liste des étudiants</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Âge</th>
+        <th>Sexe</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{range .Students}}
+        <tr>
+            <td>{{.Nom}}</td>
+            <td>{{.Prenom}}</td>
+            <td>{{.Age}}</td>
+            <td>
+                {{if eq .Genre "M"}}
+                    <img src="/GO-web/static/images/male.png" alt="Homme" width="20">
+                {{else if eq .Genre "F"}}
+                    <img src="/GO-web/static/images/female.png" alt="Femme" width="20">
+                {{end}}
+            </td>
+        </tr>
+    {{end}}
+    </tbody>
+</table>
+</body>
+</html>

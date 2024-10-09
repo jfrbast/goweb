@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations Utilisateur</title>
+    <link rel="stylesheet" href="/GO-web/static/css/display.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        .alert {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Informations de l'Utilisateur</h1>
+    {{if .Nom}}
+        <p><strong>Nom :</strong> {{.Nom}}</p>
+    {{else}}
+        <p class="alert">Le nom est manquant. Veuillez renseigner votre nom.</p>
+    {{end}}
+
+    {{if .Prenom}}
+        <p><strong>Prénom :</strong> {{.Prenom}}</p>
+    {{else}}
+        <p class="alert">Le prénom est manquant. Veuillez renseigner votre prénom.</p>
+    {{end}}
+
+    {{if .DateNaissance}}
+        <p><strong>Date de naissance :</strong> {{.DateNaissance}}</p>
+    {{else}}
+        <p class="alert">La date de naissance est manquante. Veuillez la renseigner.</p>
+    {{end}}
+
+    {{if .Sexe}}
+        <p><strong>Sexe :</strong> {{.Sexe}}</p>
+    {{else}}
+        <p class="alert">Le sexe est manquant. Veuillez sélectionner un sexe.</p>
+    {{end}}
+</div>
+</body>
+</html>
