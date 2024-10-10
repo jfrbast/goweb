@@ -63,12 +63,18 @@ input[type="submit"]:hover {
 }
 
 
-@media (max-width: 600px) {
-    form {
-        padding: 15px;
-    }
+p {
+    text-align: center;
+}
 
-    input[type="text"], select, input[type="submit"] {
-        font-size: 14px;
-    }
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #000000;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    margin: 10px 0;
 }

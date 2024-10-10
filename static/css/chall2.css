@@ -17,21 +17,7 @@ h1 {
 }
 
 
-a {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    background-color: #007BFF;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin: 10px 0;
-}
 
-a:hover {
-    background-color: #0056b3;
-}
 
 
 p {
@@ -39,12 +25,14 @@ p {
 }
 
 
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-    a {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #000000;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    margin: 10px 0;
 }
+

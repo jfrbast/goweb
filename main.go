@@ -34,7 +34,7 @@ var viewCount int
 var utilisateur Utilisateur
 
 func main() {
-	fileServer := http.FileServer(http.Dir("./css"))
+	fileServer := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fileServer))
 
 	templates := template.Must(template.ParseGlob("templates/*.html"))
@@ -56,7 +56,7 @@ func main() {
 			Students:    students,
 		}
 
-		err := templates.ExecuteTemplate(w, "Challenge1.html", class)
+		err := templates.ExecuteTemplate(w, "Challenge1", class)
 		if err != nil {
 			http.Error(w, "Erreur lors de l'exécution du template", http.StatusInternalServerError)
 		}
@@ -74,7 +74,7 @@ func main() {
 		}
 		message += fmt.Sprintf(" : %d", viewCount)
 
-		err := templates.ExecuteTemplate(w, "Challenge2.html", message)
+		err := templates.ExecuteTemplate(w, "Challenge2", message)
 		if err != nil {
 			http.Error(w, "Erreur lors de l'exécution du template", http.StatusInternalServerError)
 		}
@@ -82,7 +82,7 @@ func main() {
 
 	http.HandleFunc("/user/form", func(w http.ResponseWriter, r *http.Request) {
 
-		err := templates.ExecuteTemplate(w, "Challenge3.html", nil)
+		err := templates.ExecuteTemplate(w, "Challenge3", nil)
 		if err != nil {
 			http.Error(w, "Erreur lors de l'exécution du template", http.StatusInternalServerError)
 		}
@@ -114,14 +114,14 @@ func main() {
 	})
 
 	http.HandleFunc("/user/display", func(w http.ResponseWriter, r *http.Request) {
-		err := templates.ExecuteTemplate(w, "display.html", utilisateur)
+		err := templates.ExecuteTemplate(w, "display", utilisateur)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
 	})
 
 	http.HandleFunc("/user/error", func(w http.ResponseWriter, r *http.Request) {
-		err := templates.ExecuteTemplate(w, "error.html", utilisateur.Erreur)
+		err := templates.ExecuteTemplate(w, "error", utilisateur.Erreur)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
@@ -150,5 +150,3 @@ func validerFormulaire(nom, prenom, sexe string) (bool, string) {
 
 	return true, ""
 }
-
-//
